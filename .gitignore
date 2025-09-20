@@ -11,6 +11,7 @@
 
 # Allow the package with all sources
 !dedeucebench/
+!dedeucebench/**
 
 # Allow only dev seeds inside seeds/
 !seeds/
