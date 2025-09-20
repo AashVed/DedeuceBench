@@ -1,35 +1,9 @@
 cff-version: 1.2.0
-message: >-
-  If you use DedeuceBench in your research, please cite this artifact.
+message: If you use DedeuceBench, please cite this release.
 title: "DedeuceBench: Active Identification Benchmark for LLM Agents"
 authors:
-  - family-names: "<YourSurname>"
-    given-names: "<YourGivenNames>"
-    affiliation: "<YourAffiliation>"
-    orcid: "<YourORCID-if-any>"
-  # Add additional authors as needed
-version: "0.1.0"
+  - name: "Vedansh Sharma"
+version: "1.0.0"
 date-released: "2025-09-20"
-repository-code: "https://github.com/<org-or-user>/<repo>"
+repository-code: "https://github.com/AashVed/DedeuceBench"
 license: "MIT"
-keywords:
-  - LLM agents
-  - active learning
-  - Mealy machines
-  - interactive evaluation
-  - benchmarks
-
-# If you mint a DOI (e.g., via Zenodo), add it here and update preferred-citation accordingly.
-# doi: 10.5281/zenodo.xxxxxxx
-
-preferred-citation:
-  type: article
-  title: "DedeuceBench: Active Identification Benchmark for LLM Agents"
-  authors:
-    - family-names: "<YourSurname>"
-      given-names: "<YourGivenNames>"
-  year: 2025
-  journal: "<Preprint/Proceedings/Repository>"
-  notes: >-
-    Replace with your published venue details or Zenodo DOI once available.
-
