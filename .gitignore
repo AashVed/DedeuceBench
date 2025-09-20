@@ -1,0 +1,29 @@
+# Exclude everything in this sub-repo by default
+*
+
+# Allow the manifest and top-level files
+!.gitignore
+!pyproject.toml
+!README.md
+!LICENSE
+!CITATION.cff
+!Dockerfile
+
+# Allow the package with all sources
+!dedeucebench/
+
+# Allow only dev seeds inside seeds/
+!seeds/
+seeds/*
+!seeds/levels_dev.json
+
+# Always ignore Python cache just in case
+__pycache__/
+**/__pycache__/
+*.pyc
+*.tex
+# Local junk & eval outputs
+_tmp*
+results.*.jsonl
+*.stderr
+*.out
