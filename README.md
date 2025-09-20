@@ -283,6 +283,18 @@ Unlike those, DedeuceBench offers a compact, fully deterministic, hash‑guarded
 MIT
 
 ## Citation
+
+If you use DedeuceBench, please cite it. You can cite the latest version via the concept DOI, or pin this release.
+
+- Latest (all versions, concept DOI): 10.5281/zenodo.17166596
+- This specific version (v1.0.0): 10.5281/zenodo.17166597
+
+[![DOI (latest)](https://zenodo.org/badge/DOI/10.5281/zenodo.17166596.svg)](https://doi.org/10.5281/zenodo.17166596)
+[![DOI (v1.0.0)](https://zenodo.org/badge/DOI/10.5281/zenodo.17166597.svg)](https://doi.org/10.5281/zenodo.17166597)
+
+For reproducibility, you may also reference the GitHub release tag.
+
+## Citation
 If you use DedeuceBench, please cite it. A starter `CITATION.cff` is included at `DedeuceBench/CITATION.cff`. To mint a DOI via Zenodo:
 - Connect your GitHub repo to Zenodo; create a release to trigger an archive.
 - Copy the minted DOI into `CITATION.cff` (`doi:` and `preferred-citation`).

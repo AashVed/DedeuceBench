@@ -5,5 +5,4 @@ __all__ = [
 
 from .env import build_dataset_from_split, make_env
 
-__version__ = "0.1.0"
-
+__version__ = "1.0.1"

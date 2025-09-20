@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "dedeucebench"
-version = "0.1.0"
+version = "1.0.1"
 description = "DedeuceBench: active-learning + control benchmark wrapper around the dedeuce env"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -42,4 +42,3 @@ dedeucebench-selfcheck = "dedeucebench.self_check:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["dedeucebench"]
-
