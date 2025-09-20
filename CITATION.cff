@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-message: If you use DedeuceBench, please cite this release.
-title: "DedeuceBench: Active Identification Benchmark for LLM Agents"
+message: "If you use this software, please cite it as below."
+title: "DedeuceBench"
 type: software
 authors:
   - family-names: Sharma
@@ -8,3 +8,5 @@ authors:
 version: "1.0.0"
 date-released: "2025-09-20"
 license: MIT
+repository-code: "https://github.com/AashVed/DedeuceBench"
+url: "https://github.com/AashVed/DedeuceBench"
