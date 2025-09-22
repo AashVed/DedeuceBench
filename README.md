@@ -237,26 +237,9 @@ Install both the underlying env and the benchmark:
 
 ```
 pip install -e ./dedeuce
-pip install -e ./DedeuceBench[all]
+pip install -e ./DedeuceBench
 ```
 
-Optional extras:
-- `DedeuceBench[all]` installs the OpenAI client used by the OpenAI/OpenRouter adapter.
-- Anthropic/Gemini adapters require installing the matching extras; without them, the CLI will raise an informative error telling you which package to install.
-
-## Docker
-
-Build from the repo root so the Docker build context includes both `dedeuce/` and `DedeuceBench/`.
-
-```
-docker build -f DedeuceBench/Dockerfile -t dedeucebench .
-# write results to a container‑local file
-docker run --rm dedeucebench --split seeds/levels_dev.json --subset dev --model heuristic:none --out /tmp/results.jsonl
-
-# to collect outputs on host, mount a volume
-docker run --rm -v "$PWD:/out" dedeucebench \
-  --split seeds/levels_dev.json --subset dev --model heuristic:none --out /out/results.jsonl
-```
 
 ## Self‑Check
 
@@ -294,8 +277,3 @@ If you use DedeuceBench, please cite it. You can cite the latest version via the
 
 For reproducibility, you may also reference the GitHub release tag.
 
-## Citation
-If you use DedeuceBench, please cite it. A starter `CITATION.cff` is included at `DedeuceBench/CITATION.cff`. To mint a DOI via Zenodo:
-- Connect your GitHub repo to Zenodo; create a release to trigger an archive.
-- Copy the minted DOI into `CITATION.cff` (`doi:` and `preferred-citation`).
-- Optionally add a badge to this README and your Zenodo-exported citation.
