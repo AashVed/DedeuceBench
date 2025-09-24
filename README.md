@@ -130,10 +130,10 @@ Notes:
 
 ### Tools Available to Agents
 - `act(symbol)`: execute one input symbol (costs 1 query)
-- `submit_table(table_json)`: submit exact transition table. In default mode it ends the episode; in `--feedback` mode, if the table is incorrect it returns a short counterexample and does not end the episode (ends only when `ok=true`).
+- `submit_table(table_json)`: submit exact transition table. If the table is incorrect, it consumes 1 query and does not end the episode; when `--feedback` is enabled a short counterexample is returned. If the table is correct, it ends the episode and does not consume budget.
 - `submit_macro(seq, repeat)`: submit controller macro (ends episode; not part of the primary leaderboard)
 
-Episodes end on submission (unless `--feedback` is enabled and the submission is incorrect, in which case a counterexample is returned and the episode continues). The rubric scores success, safety (trap‑free), and efficiency. The OpenAI adapter uses Chat Completions tool‑calling with correct assistant→tool sequencing for multi‑step tool use.
+Episodes end only on a correct submission (or when budget is exhausted). Wrong submissions consume 1 query and the episode continues; with `--feedback` the environment also returns a short counterexample. The rubric scores success, safety (trap‑free), and efficiency. The OpenAI adapter uses Chat Completions tool‑calling with correct assistant→tool sequencing for multi‑step tool use.
 
 Note: table submissions are now accepted up to state relabeling (isomorphism), preserving the start state. This removes unfair dependence on hidden state numbering.
 
@@ -240,6 +240,25 @@ pip install -e ./dedeuce
 pip install -e ./DedeuceBench
 ```
 
+Note: use `dedeuce >= 0.1.3` to match the current submit_table semantics (wrong submissions consume 1 query and do not end the episode; counterexamples are returned only with `--feedback`).
+
+Optional extras:
+- `DedeuceBench[all]` installs the OpenAI client used by the OpenAI/OpenRouter adapter.
+- Anthropic/Gemini adapters require installing the matching extras; without them, the CLI will raise an informative error telling you which package to install.
+
+## Docker
+
+Build from the repo root so the Docker build context includes both `dedeuce/` and `DedeuceBench/`.
+
+```
+docker build -f DedeuceBench/Dockerfile -t dedeucebench .
+# write results to a container‑local file
+docker run --rm dedeucebench --split seeds/levels_dev.json --subset dev --model heuristic:none --out /tmp/results.jsonl
+
+# to collect outputs on host, mount a volume
+docker run --rm -v "$PWD:/out" dedeucebench \
+  --split seeds/levels_dev.json --subset dev --model heuristic:none --out /out/results.jsonl
+```
 
 ## Self‑Check
 

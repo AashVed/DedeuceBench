@@ -74,7 +74,36 @@
         { "seed": 1063 },
         { "seed": 1064 }
       ]
+    },
+    "test_feedback": {
+      "mode": "basic",
+      "trap": false,
+      "feedback": true,
+      "budget": 25,
+      "n_states": 2,
+      "target_len": 8,
+      "variety": false,
+      "items": [
+        { "seed": 1234 },
+        { "seed": 1235 },
+        { "seed": 1236 },
+        { "seed": 1237 }
+      ]
+    },
+    "test_no_feedback": {
+      "mode": "basic",
+      "trap": false,
+      "feedback": false,
+      "budget": 25,
+      "n_states": 2,
+      "target_len": 8,
+      "variety": false,
+      "items": [
+        { "seed": 1234 },
+        { "seed": 1235 },
+        { "seed": 1236 },
+        { "seed": 1237 }
+      ]
     }
   }
 }
-

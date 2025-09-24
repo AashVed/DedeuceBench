@@ -150,15 +150,11 @@ def build_dataset_from_split(
                 "Benchmark focus: identification-first. Success is achieved only by exact transition-table submission via submit_table(table_json).\n\n"
                 "Episode semantics:\n"
                 "- Start state is 0; the hidden state updates only when you call act(symbol).\n"
-                + (
-                    "- Each act() consumes 1 query from the budget. In feedback mode, an incorrect submit_table consumes 1 query and returns a counterexample without ending the episode; a correct submission ends the episode and does not consume budget.\n"
-                    if enable_feedback
-                    else
-                    "- Each act() consumes 1 query from the budget. Submissions end the episode and do not consume budget.\n"
-                )
+                + "- Each act() consumes 1 query from the budget.\n"
+                + "- submit_table(table_json): if your table is incorrect, it consumes 1 query and does NOT end the episode (when feedback is enabled, a short counterexample is returned). If correct, it ends the episode and does not consume budget.\n"
                 + "Tools (use only act() and submit_table()):\n"
                 "- act(symbol: 'A'|'B'|'C') -> JSON {out, budget_left, t, trap_hit, queries_used}. Each call consumes 1 query and advances the hidden state.\n"
-                + ("- submit_table(table_json: string) -> JSON {ok, budget_left, queries_used, trap_hit, counterexample?}. In feedback mode, if ok=false returns a short separating input-output trace and does NOT end the episode; if ok=true, ends the episode.\n\n" if enable_feedback else "- submit_table(table_json: string) -> JSON {ok, budget_left, queries_used, trap_hit}. Ends the episode.\n\n")
+                + "- submit_table(table_json: string) -> JSON {ok, budget_left, queries_used, trap_hit, counterexample?}. If ok=false, consumes 1 query and does NOT end the episode (counterexample present only when feedback is enabled). If ok=true, ends the episode.\n\n"
                 + "Tool return fields (definitions):\n"
                 "- out: integer output in {0,1,2} produced by this act() step.\n"
                 "- budget_left: remaining number of act() queries.\n"

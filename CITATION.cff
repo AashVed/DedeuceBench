@@ -5,8 +5,8 @@ type: software
 authors:
   - family-names: Sharma
     given-names: Vedansh
-version: "1.0.1"
-date-released: "2025-09-20"
+version: "1.0.2"
+date-released: "2025-09-24"
 license: MIT
 repository-code: "https://github.com/AashVed/DedeuceBench"
 url: "https://github.com/AashVed/DedeuceBench"
